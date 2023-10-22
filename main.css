@@ -1,40 +1,41 @@
 body {
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: var(--tg-theme-bg-color); /* Use Telegram theme background color */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: var(--tg-viewport-height); /* Adjust height based on the visible area */
     margin: 0;
   }
   
   .form {
-    background-color: #ffffff; /* White background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
-    max-width: 400px;
-    width: 100%;
-    padding: 40px;
+    background-color: var(--tg-theme-secondary-bg-color); /* Use Telegram theme secondary background color */
+    border-radius: var(--tg-radius-m);
+    max-width: 300px;
+    width: 100%; /* Ensure full width */
+    margin: 0 auto;
+    padding: var(--tg-space-m);
     text-align: center;
     transition: box-shadow 0.3s ease;
   }
   
   .form:hover {
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adjust shadow on hover */
   }
   
   .title {
-    color: #3498db; /* Blue text color */
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    margin-bottom: 30px;
+    color: var(--tg-theme-text-color); /* Use Telegram theme text color */
+    font-family: var(--tg-font-family);
+    font-size: var(--tg-font-size-title);
     text-align: center;
+    margin-bottom: 20px;
   }
   
   .input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 16px;
+    text-align: left;
     border: 1px solid #bdc3c7; /* Light border color */
     border-radius: 5px;
   }
@@ -42,27 +43,26 @@ body {
   .submit {
     background-color: #4caf50; /* Green submit button */
     border: none;
-    border-radius: 5px;
+    border-radius: var(--tg-radius-m);
     color: #fff;
-    font-size: 18px;
+    font-size: var(--tg-font-size-input);
+    font-weight: bold;
     padding: 12px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
   }
   
   .submit:hover {
     background-color: #45a049; /* Darker green on hover */
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 360px) {
     .form {
-      padding: 30px;
+      padding: 20px; /* Adjust padding for smaller screens */
     }
-  }
   
-  @media (max-width: 480px) {
-    .form {
-      padding: 20px;
+    .title {
+      font-size: var(--tg-font-size-header); /* Responsive font size */
     }
   }
   
