@@ -36,9 +36,7 @@ body {
   .info-button:hover {
     background-color: #2980b9; /* Darker blue on hover */
   }
-  .form:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adjust shadow on hover */
-  }
+
   
   .title {
     color: var(--tg-theme-text-color); /* Use Telegram theme text color */
