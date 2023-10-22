@@ -1,39 +1,68 @@
 body {
-    background-color: var(--tg-theme-bg-color);
+    background-color: #f5f5f5; /* Light gray background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
   }
   
   .form {
-    background-color: var(--tg-theme-secondary-bg-color);
-    border-radius: var(--tg-radius-m);
-    padding: var(--tg-space-m);
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    max-width: 400px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .form:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
   }
   
   .title {
-    color: var(--tg-theme-text-color);
-    font-family: var(--tg-font-family);
-    font-size: var(--tg-font-size-title);
+    color: #3498db; /* Blue text color */
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
   }
   
   .input {
-    background-color: var(--tg-theme-secondary-bg-color);
-    border-radius: var(--tg-radius-m);
-    color: var(--tg-theme-text-color);
-    font-size: var(--tg-font-size-input); 
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #bdc3c7; /* Light border color */
+    border-radius: 5px;
   }
   
   .submit {
-    border-radius: var(--tg-radius-m);
-    font-size: var(--tg-font-size-input);
+    background-color: #4caf50; /* Green submit button */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
-  @media (max-width: 390px) {
+  .submit:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
   
+  @media (max-width: 768px) {
     .form {
-      max-height: var(--tg-space-xl);
+      padding: 30px;
     }
-    
-    .title {
-      font-size: var(--tg-font-size-header);
-    }
-  
   }
+  
+  @media (max-width: 480px) {
+    .form {
+      padding: 20px;
+    }
+  }
+  
