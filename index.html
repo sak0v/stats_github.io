@@ -10,7 +10,6 @@
       <div class="input-container ic1">
         <label for="nickname" class="placeholder">Твой Nickname</label>
         <input id="nickname" class="input" type="text" placeholder=" " required/>
-        <div id="nicknameError" class="error-message"></div>
         <div class="cut"></div>
         
       </div>
@@ -22,23 +21,21 @@
       <div class="input-container ic2">
         <label for="discord" class="placeholder">Укажи свой Discord(ID)</label>
         <input id="discord" class="input" type="text" placeholder=" " required/>
-        <div id="discordError" class="error-message"></div>
         <div class="cut cut-short"></div>
       </div>
       <div class="input-container ic2">
-        <label for="forum" class="placeholder">Укажи свой Forum </label>
+        <label for="forum" class="placeholder">Укажи свой Forum</label>
         <input id="forum" class="input" type="text" placeholder=" " required/>
         <div class="cut cut-short"></div>
       </div>
       <div class="input-container ic2">
-        <div class="cut cut-short"></div>
         <label for="age" class="placeholder">Укажи свой возраст</label>
         <div id="ageError" class="error-message"></div>
         <input id="age" class="input" type="text" placeholder=" " required/>
       </div>
       <div class="input-container ic2">
         <label for="timezone" class="placeholder">Выбери свой часовой пояс</label>
-        <select id="timezone" class="input" name="timezone"required>
+        <select id="timezone" class="input" name="timezone" required>
           <option value="" selected disabled>Выбери</option>
           <option value="1- MSK">1- МСК</option>
           <option value="MSK">MSK</option>
@@ -47,14 +44,13 @@
       </div>
       <div class="input-container ic2">
         <label for="timezone" class="placeholder">Укажи свой доступ к ПК</label>
-        <select id="comp" class="input" name="comp"required>
+        <select id="comp" class="input" name="comp" required>
           <option value="" selected disabled>Выбери</option>
           <option value="Yes">✅ Да</option>
           <option value="No">❌ Нет</option>
         </select>
-        <div id="requiredFieldsError" class="error-message"></div>
       </div>
-      <button type="text" id="submitbutton" class="submit">Отправить</button>
+      <button type="button" id="submitbutton" class="submit">Отправить</button>
       </div>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -67,6 +63,7 @@
           document.getElementById("nicknameError").textContent = "";
           document.getElementById("discordError").textContent = "";
           document.getElementById("ageError").textContent = "";
+          document.getElementById("requiredFieldsError").textContent = "";
           
           let nickname = document.getElementById("nickname").value;
           let vk = document.getElementById("vk").value;
@@ -76,48 +73,46 @@
           let timezone = document.getElementById("timezone").value;
           let comp = document.getElementById("comp").value;
       
-         // Validation logic
-        let isValid = true;
+          // Validation logic
+          let isValid = true;
 
-        if (nickname.length < 5) {
-        document.getElementById("nicknameError").textContent = "Nickname должен содержать минимум 5 символов.";
-        isValid = false;
-        }
+          if (nickname.length < 5) {
+            alert("Nickname должен содержать минимум 5 символов.");
+            isValid = false;
+          }
 
-        if (!/^\d+$/.test(discord)) {
-        document.getElementById("discordError").textContent = "Discord должен состоять только из чисел.";
-        isValid = false;
-        }
+          if (!/^\d+$/.test(discord)) {
+            alert("Discord должен состоять только из чисел.");
+            isValid = false;
+          }
 
-        if (!/^\d+$/.test(age)) {
-        document.getElementById("ageError").textContent = "Возраст должен состоять только из чисел";
-        isValid = false;
-        }
-        if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
-        alert("Заполни всю информацию");
-        isValid = false;
-        }
+          if (!/^\d+$/.test(age)) {
+            alert("Возраст должен состоять только из чисел.");
+            isValid = false;
+          }
 
-        if (isValid) {
+          if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
+            alert("Заполни всю информацию.");
+            isValid = false;
+          }
 
-        let data = {
-            nickname: nickname,
-            vk: vk,
-            discord: discord,
-            forum: forum,
-            age: age,
-            timezone: timezone,
-            comp: comp,
-        };
+          if (isValid) {
+            // If all validations pass, send the data
+            let data = {
+              nickname: nickname,
+              vk: vk,
+              discord: discord,
+              forum: forum,
+              age: age,
+              timezone: timezone,
+              comp: comp,
+            };
 
-        tg.sendData(JSON.stringify(data));
-        tg.close();
-        }
+            tg.sendData(JSON.stringify(data));
+            tg.close();
+          }
         });
-        </script>
-
-      
+    </script>
   </div>
-  
 </body>
 </html>
