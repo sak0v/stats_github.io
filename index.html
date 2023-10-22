@@ -67,6 +67,7 @@
           document.getElementById("nicknameError").textContent = "";
           document.getElementById("discordError").textContent = "";
           document.getElementById("ageError").textContent = "";
+          
           let nickname = document.getElementById("nickname").value;
           let vk = document.getElementById("vk").value;
           let discord = document.getElementById("discord").value;
@@ -93,9 +94,10 @@
         isValid = false;
         }
         if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
-        alert("Please fill in all required fields.");
+        alert("Заполни всю информацию");
         isValid = false;
         }
+
         if (isValid) {
 
         let data = {
