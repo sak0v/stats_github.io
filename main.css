@@ -11,6 +11,7 @@ body {
     border-radius: 20px;
     box-sizing: border-box;
     height: auto;
+    max-height: 750;
     padding: 20px;
     width: 320px;
   }
