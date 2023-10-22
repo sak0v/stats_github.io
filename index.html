@@ -79,17 +79,17 @@
         let isValid = true;
 
         if (nickname.length < 5) {
-        document.getElementById("nicknameError").textContent = "Nickname must be at least 5 characters long.";
+        document.getElementById("nicknameError").textContent = "Nickname должен содержать минимум 5 символов.";
         isValid = false;
         }
 
         if (!/^\d+$/.test(discord)) {
-        document.getElementById("discordError").textContent = "Discord must contain only numbers.";
+        document.getElementById("discordError").textContent = "Discord должен состоять только из чисел.";
         isValid = false;
         }
 
         if (!/^\d+$/.test(age)) {
-        document.getElementById("ageError").textContent = "Age must contain only numbers.";
+        document.getElementById("ageError").textContent = "Возраст должен состоять только из чисел";
         isValid = false;
         }
         if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
