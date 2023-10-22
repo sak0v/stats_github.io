@@ -71,6 +71,11 @@ body {
   .submit:hover {
     background-color: #45a049; /* Darker green on hover */
   }
+  .error-message {
+    color: red; /* Set the text color to red */
+    font-size: 14px; /* Customize the font size */
+    margin-top: 5px; /* Add some spacing between the error message and the input field */
+  }
   
   @media (max-width: 240px) {
     .form {
