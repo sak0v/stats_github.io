@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="info-button-container">
+    <div id="info" class="info-button-container">
         <button id="infoButton" class="info-button">Заполнить информацию</button>
     </div>
   <div class="form">
@@ -58,7 +58,12 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window. Telegram.WebApp;
-        let submit = document.getElementById("submitbutton")
+        let submit = document.getElementById("submitbutton");
+        let info = document.getElementById("infoButton");
+
+        info.addEventListener("click",() =>{
+            document.getElementById("info").style.display = "none"
+        })
     </script>
   </div>
   
