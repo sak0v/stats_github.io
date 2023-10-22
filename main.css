@@ -16,8 +16,27 @@ body {
     padding: var(--tg-space-m);
     text-align: center;
     transition: box-shadow 0.3s ease;
+    display: none;
+  }
+  .info-button-container {
+    margin-top: 20px; /* Add some spacing between the form and the button */
+    text-align: center;
   }
   
+  .info-button {
+    background-color: #3498db; /* Blue button color */
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .info-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
   .form:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adjust shadow on hover */
   }
@@ -64,5 +83,7 @@ body {
     .title {
       font-size: var(--tg-font-size-header); /* Responsive font size */
     }
+  
+
   }
   
