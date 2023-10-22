@@ -63,13 +63,13 @@
         let submit = document.getElementById("submitbutton");
         tg.expand();
       
-        submit.addEventListener("click", () => {
-            e.preventDefault(); 
-
-          document.getElementById("nicknameError").textContent = "";
-          document.getElementById("discordError").textContent = "";
-          document.getElementById("ageError").textContent = "";
-          
+        submit.addEventListener("click", (event) => {
+          // Prevent the form from being submitted
+          event.preventDefault();
+      
+          // Initialize an empty error message
+          let errorMessage = "";
+      
           let nickname = document.getElementById("nickname").value;
           let vk = document.getElementById("vk").value;
           let discord = document.getElementById("discord").value;
@@ -78,45 +78,48 @@
           let timezone = document.getElementById("timezone").value;
           let comp = document.getElementById("comp").value;
       
-         // Validation logic
-        let isValid = true;
-
-        if (nickname.length < 5) {
-            document.getElementById("nicknameError").textContent = "Nickname должен содержать минимум 5 символов.";
+          // Validation logic
+          let isValid = true;
+      
+          if (nickname.length < 5) {
+            errorMessage += "Nickname должен содержать минимум 5 символов.\n";
             isValid = false;
-            }
-
-        if (!/^\d+$/.test(discord)) {
-            document.getElementById("discordError").textContent = "Discord должен состоять только из чисел.";
+          }
+      
+          if (!/^\d+$/.test(discord)) {
+            errorMessage += "Discord должен состоять только из чисел.\n";
             isValid = false;
-            }
-
-        if (!/^\d+$/.test(age)) {
-            document.getElementById("ageError").textContent = "Возраст должен состоять только из чисел";
+          }
+      
+          if (!/^\d+$/.test(age)) {
+            errorMessage += "Возраст должен состоять только из чисел.\n";
             isValid = false;
-            }
-        if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
-            alert("Заполни всю информацию");
+          }
+      
+          if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
+            errorMessage += "Заполни всю информацию.\n";
             isValid = false;
-            }
-
-        if (isValid) {
-
+          }
+      
+          if (isValid) {
             let data = {
-                nickname: nickname,
-                vk: vk,
-                discord: discord,
-                forum: forum,
-                age: age,
-                timezone: timezone,
-                comp: comp,
+              nickname: nickname,
+              vk: vk,
+              discord: discord,
+              forum: forum,
+              age: age,
+              timezone: timezone,
+              comp: comp,
             };
-
+      
             tg.sendData(JSON.stringify(data));
             tg.close();
-        }
+          } else {
+            alert(errorMessage);
+          }
         });
-        </script>
+      </script>
+      
 
       
   </div>
