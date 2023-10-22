@@ -1,5 +1,5 @@
 body {
-    background-color: var(--tg-theme-bg-color); /* Use Telegram theme background color */
+    background-color:lightgray; /* Use Telegram theme background color */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,7 +56,7 @@ body {
     background-color: #45a049; /* Darker green on hover */
   }
   
-  @media (max-width: 360px) {
+  @media (max-width: 240px) {
     .form {
       padding: 20px; /* Adjust padding for smaller screens */
     }
