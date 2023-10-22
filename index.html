@@ -65,7 +65,7 @@
       
         submit.addEventListener("click", () => {
             e.preventDefault(); 
-            
+
           document.getElementById("nicknameError").textContent = "";
           document.getElementById("discordError").textContent = "";
           document.getElementById("ageError").textContent = "";
@@ -82,38 +82,38 @@
         let isValid = true;
 
         if (nickname.length < 5) {
-        document.getElementById("nicknameError").textContent = "Nickname должен содержать минимум 5 символов.";
-        isValid = false;
-        }
+            document.getElementById("nicknameError").textContent = "Nickname должен содержать минимум 5 символов.";
+            isValid = false;
+            }
 
         if (!/^\d+$/.test(discord)) {
-        document.getElementById("discordError").textContent = "Discord должен состоять только из чисел.";
-        isValid = false;
-        }
+            document.getElementById("discordError").textContent = "Discord должен состоять только из чисел.";
+            isValid = false;
+            }
 
         if (!/^\d+$/.test(age)) {
-        document.getElementById("ageError").textContent = "Возраст должен состоять только из чисел";
-        isValid = false;
-        }
+            document.getElementById("ageError").textContent = "Возраст должен состоять только из чисел";
+            isValid = false;
+            }
         if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
-        alert("Заполни всю информацию");
-        isValid = false;
-        }
+            alert("Заполни всю информацию");
+            isValid = false;
+            }
 
         if (isValid) {
 
-        let data = {
-            nickname: nickname,
-            vk: vk,
-            discord: discord,
-            forum: forum,
-            age: age,
-            timezone: timezone,
-            comp: comp,
-        };
+            let data = {
+                nickname: nickname,
+                vk: vk,
+                discord: discord,
+                forum: forum,
+                age: age,
+                timezone: timezone,
+                comp: comp,
+            };
 
-        tg.sendData(JSON.stringify(data));
-        tg.close();
+            tg.sendData(JSON.stringify(data));
+            tg.close();
         }
         });
         </script>
