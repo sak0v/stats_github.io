@@ -26,7 +26,7 @@ body {
     font-size: var(--tg-font-size-input);
   }
   
-  @media (max-width: 480px) {
+  @media (max-width: 390px) {
   
     .form {
       max-height: var(--tg-space-xl);
