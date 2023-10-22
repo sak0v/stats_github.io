@@ -6,10 +6,8 @@
 <body>
   <div class="form">
     <form id="myForm">
-      <div class="title">Добро пожаловать!</div>
-      <div class="subtitle">Укажи информацию о себе</div>
+      <div class="title">Добро пожаловать!<br>Укажи информацию о себе</br> </div>
       <div class="input-container ic1">
-        <input id="nickname" class="input" type="text" placeholder=" " required/>
         <div class="cut"></div>
         <label for="nickname" class="placeholder">Твой Nickname</label>
       </div>
@@ -32,23 +30,24 @@
         <input id="age" class="input" type="text" placeholder=" " required/>
         <div class="cut cut-short"></div>
         <label for="age" class="placeholder">Укажи свой возраст</label>
+        <input id="nickname" class="input" type="text" placeholder=" " required/>
       </div>
       <div class="input-container ic2">
+        <label for="timezone" class="placeholder">Выбери свой часовой пояс</label>
         <select id="timezone" class="input" name="timezone"required>
           <option value="" selected disabled>Выбери</option>
           <option value="1- MSK">1- МСК</option>
           <option value="MSK">MSK</option>
           <option value="1+ MSK">1+ МСК:00</option>
         </select>
-        <label for="timezone" class="placeholder">Выбери свой часовой пояс</label>
       </div>
       <div class="input-container ic2">
+        <label for="timezone" class="placeholder">Укажи свой доступ к ПК</label>
         <select id="comp" class="input" name="comp"required>
           <option value="" selected disabled>Выбери</option>
           <option value="Yes">✅ Да</option>
           <option value="No">❌ Нет</option>
         </select>
-        <label for="timezone" class="placeholder">Выбери свой часовой пояс</label>
       </div>
       <button type="text" class="submit">Отправить</button>
       </div>
