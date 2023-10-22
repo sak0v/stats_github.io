@@ -10,6 +10,7 @@
       <div class="input-container ic1">
         <label for="nickname" class="placeholder">Твой Nickname</label>
         <input id="nickname" class="input" type="text" placeholder=" " required/>
+        <div id="nicknameError" class="error-message"></div>
         <div class="cut"></div>
         
       </div>
@@ -21,6 +22,7 @@
       <div class="input-container ic2">
         <label for="discord" class="placeholder">Укажи свой Discord(ID)</label>
         <input id="discord" class="input" type="text" placeholder=" " required/>
+        <div id="discordError" class="error-message"></div>
         <div class="cut cut-short"></div>
       </div>
       <div class="input-container ic2">
@@ -31,6 +33,7 @@
       <div class="input-container ic2">
         <div class="cut cut-short"></div>
         <label for="age" class="placeholder">Укажи свой возраст</label>
+        <div id="ageError" class="error-message"></div>
         <input id="age" class="input" type="text" placeholder=" " required/>
       </div>
       <div class="input-container ic2">
@@ -49,6 +52,7 @@
           <option value="Yes">✅ Да</option>
           <option value="No">❌ Нет</option>
         </select>
+        <div id="requiredFieldsError" class="error-message"></div>
       </div>
       <button type="text" id="submitbutton" class="submit">Отправить</button>
       </div>
@@ -58,31 +62,59 @@
         let tg = window.Telegram.WebApp;
         let submit = document.getElementById("submitbutton");
         tg.expand();
-
+      
         submit.addEventListener("click", () => {
-            let nickname = document.getElementById("nickname").value;
-            let vk = document.getElementById("vk").value;
-            let discord = document.getElementById("discord").value;
-            let forum = document.getElementById("forum").value;
-            let age = document.getElementById("age").value;
-            let timezone = document.getElementById("timezone").value;
-            let comp = document.getElementById("comp").value;
+          document.getElementById("nicknameError").textContent = "";
+          document.getElementById("discordError").textContent = "";
+          document.getElementById("ageError").textContent = "";
+          let nickname = document.getElementById("nickname").value;
+          let vk = document.getElementById("vk").value;
+          let discord = document.getElementById("discord").value;
+          let forum = document.getElementById("forum").value;
+          let age = document.getElementById("age").value;
+          let timezone = document.getElementById("timezone").value;
+          let comp = document.getElementById("comp").value;
+      
+         // Validation logic
+        let isValid = true;
 
-            let data = {
-                nickname: nickname,
-                vk: vk,
-                discord: discord,
-                forum: forum,
-                age: age,
-                timezone: timezone,
-                comp : comp
-            }
-            tg.sendData(JSON.stringify(data));
-            
-            tg.close();
-        })
-        
-    </script>
+        if (nickname.length < 5) {
+        document.getElementById("nicknameError").textContent = "Nickname must be at least 5 characters long.";
+        isValid = false;
+        }
+
+        if (!/^\d+$/.test(discord)) {
+        document.getElementById("discordError").textContent = "Discord must contain only numbers.";
+        isValid = false;
+        }
+
+        if (!/^\d+$/.test(age)) {
+        document.getElementById("ageError").textContent = "Age must contain only numbers.";
+        isValid = false;
+        }
+        if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
+        alert("Please fill in all required fields.");
+        isValid = false;
+        }
+        if (isValid) {
+
+        let data = {
+            nickname: nickname,
+            vk: vk,
+            discord: discord,
+            forum: forum,
+            age: age,
+            timezone: timezone,
+            comp: comp,
+        };
+
+        tg.sendData(JSON.stringify(data));
+        tg.close();
+        }
+        });
+        </script>
+
+      
   </div>
   
 </body>
