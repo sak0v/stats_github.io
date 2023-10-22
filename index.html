@@ -4,6 +4,9 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div class="info-button-container">
+        <button id="infoButton" class="info-button">Заполнить информацию</button>
+    </div>
   <div class="form">
     <form id="myForm">
       <div class="title">Добро пожаловать!<br>Укажи информацию о себе</br> </div>
@@ -49,9 +52,14 @@
           <option value="No">❌ Нет</option>
         </select>
       </div>
-      <button type="text" class="submit">Отправить</button>
+      <button type="text" id="submitbutton" class="submit">Отправить</button>
       </div>
     </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window. Telegram.WebApp;
+        let submit = document.getElementById("submitbutton")
+    </script>
   </div>
   
 </body>
