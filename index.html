@@ -25,7 +25,8 @@
         <div class="cut"></div>
       </div>
       <div class="input-container ic2">
-        <input id="vk" class="input" type="text" placeholder="Укажи свой VK(ID и ссылкой)" required/>
+        <input id="vk" class="input" type="text" placeholder="Укажи свой VK(Пример: 587624972)"required/>
+        <div id="vkError" class="error-message"></div>
         <div class="cut"></div>
       </div>
       <div class="input-container ic2">
@@ -74,13 +75,14 @@
         <label for="timezone" class="placeholder"></label>
         <select id="comp" class="input" name="comp" required>
           <option value="" selected disabled>Выбери свой доступ к ПК</option>
-          <option value="Yes">✅ Да</option>
-          <option value="No">❌ Нет</option>
+          <option value="✅ Да">✅ Да</option>
+          <option value="❌ Нет">❌ Нет</option>
         </select>
         <div id="requiredFieldsError" class="error-message"></div>
       </div>
       <button type="text" id="submitbutton" class="submit">Отправить</button>
     </form>
+    </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
@@ -89,6 +91,7 @@
       
         submit.addEventListener("click", (event) => {
           event.preventDefault();
+          submit.classList.add('submitted');
       
           let errorMessage = "";
       
@@ -107,6 +110,10 @@
             isValid = false;
           }
       
+          if (!/^\d+$/.test(vk)) {
+            errorMessage += "VK должен состоять только из чисел.\n";
+            isValid = false;
+          }
           if (!/^\d+$/.test(discord)) {
             errorMessage += "Discord должен состоять только из чисел.\n";
             isValid = false;
