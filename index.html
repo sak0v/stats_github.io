@@ -45,6 +45,12 @@
         <input id="age" class="input" type="text" placeholder="Укажи свой возраст" required/>
       </div>
       <div class="input-container ic2">
+        <div class="cut cut-short"></div>
+        <label for="email" class="placeholder"></label>
+        <div id="emailError" class="error-message"></div>
+        <input id="email" class="input" type="text" placeholder="Укажи свою почту" required/>
+      </div>
+      <div class="input-container ic2">
         <label for="timezone" class="placeholder"></label>
         <select id="timezone" class="input" name="timezone" required>
           <option value="" selected disabled>Выбери свой часовой пояс</option>
@@ -106,6 +112,9 @@
           let forum = document.getElementById("forum").value;
           let age = document.getElementById("age").value;
           let timezone = document.getElementById("timezone").value;
+          let email = document.getElementById("email").value;
+
+        
           let comp = document.getElementById("comp").value;
           let tick = document.getElementById("tick");
       
@@ -129,18 +138,20 @@
             errorMessage += "Возраст должен состоять только из чисел.\n";
             isValid = false;
           }
-
-
-          if (forum && !forum.startsWith("https://")) {
-            errorMessage += "Forum должен начинаться с 'https://'.\n";
+          let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(email)) {
+            errorMessage += "Укажите корректную почту.\n";
             isValid = false;
           }
-      
+          
           if (!nickname || !vk || !discord || !forum || !age || !timezone || !comp) {
             errorMessage += "Заполни всю информацию.\n";
             isValid = false;
           }
-          
+          if (forum && !forum.startsWith("https://")) {
+            errorMessage += "Forum должен начинаться с 'https://'.\n";
+            isValid = false;
+          }
 
       
           if (isValid) {
@@ -160,7 +171,7 @@
             setTimeout(() => {
               tg.sendData(JSON.stringify(data));
               tg.close();
-            }, 2000); // Adjust the duration as needed
+            }, 2000); 
           } else {
             alert(errorMessage);
           }
